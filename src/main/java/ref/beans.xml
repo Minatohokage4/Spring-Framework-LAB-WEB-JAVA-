@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="name.john" class="ref.Name">
+		<constructor-arg value="John" />
+		<constructor-arg value="Rambo"/>
+	</bean>
+
+	<bean id="name.jack" class="ref.Name">
+		<property name="first" value="Jack" />
+		<property name="last" value="Ripper" />
+	</bean>
+
+		<!--  constructor injection with reference -->
+	<bean id="student.john" class="ref.Student">
+		<constructor-arg value="1" />
+		<constructor-arg ref="name.john"/>
+	</bean>
+	
+		<!--  property injection with reference -->
+	<bean id="student.jack" class="ref.Student">
+		<property name="id" value="2" />
+		<property name="name" ref="name.jack" />
+	</bean>
+	<!--  'ref' refers to an already defined bean  -->
+	
+		<!--  property injection with inner bean -->
+	<bean id="student.joe" class="ref.Student">
+		<property name="id" value="3" />
+		<property name="name">
+			<bean class="ref.Name"> 	<!-- no name or id -->
+				<constructor-arg value="Joe" />
+				<constructor-arg value="Green"/>
+			</bean>
+		</property>
+	</bean>
+</beans>

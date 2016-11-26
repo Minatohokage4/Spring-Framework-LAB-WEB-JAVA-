@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+	"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+		<!-- Array of String -->
+	<bean id="string.array" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<value>John</value>
+				<value>Jack</value>
+				<value>Joe</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="john" class="col.Name">
+		<constructor-arg value="John" />
+		<constructor-arg value="Rambo" />
+	</bean>
+	<bean id="jack" class="col.Name">
+		<constructor-arg value="Jack" />
+		<constructor-arg value="Ripper" />
+	</bean>
+	<bean id="joe" class="col.Name">
+		<constructor-arg value="Joe" />
+		<constructor-arg value="Green" />
+	</bean>
+	
+			<!-- Array of Names -->
+	<bean id="name.array" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="joe" />
+				<ref bean="john" />
+				<ref bean="jack" />
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	
+	<bean id="email.map" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="john" value="john@rambo.com" />
+				<entry key="jack">
+					<value>jack@raipper.com</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

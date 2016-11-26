@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="student.john" class="din.Student">
+		<constructor-arg value="1" />
+		<constructor-arg>
+			<value>John Rambo</value>
+		</constructor-arg>
+		<constructor-arg value="2.0" />
+	</bean>
+
+	<bean id="student.jack" class="din.Student">
+		<property name="id" value="2" />
+		<property name="name" value="Jack Ripper" />
+		<property name="gpa">
+			<value>4.0</value>
+		</property>
+	</bean>
+	
+	<bean id="student.joe" class="din.Student">
+		<constructor-arg value="3" />
+		<constructor-arg value="Joe Green" />
+		<property name="gpa" value="3.8" />
+	</bean>
+
+</beans>
